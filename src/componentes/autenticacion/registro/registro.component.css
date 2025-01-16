@@ -1,0 +1,79 @@
+/* Archivo: registro.component.css */
+
+.registro-container {
+    background-color: rgba(0,17,37,255); /* Color oscuro de fondo */
+    color: #ffffff; /* Texto blanco */
+    width: 300px;
+    height: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: left;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .registro-container h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .registro-container form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 300px; /* Adjust the max-width as needed */
+  }
+
+  .registro-container div {
+    width: 100%;
+    margin-bottom: 10px;
+    border-radius: 10px;
+  }
+  
+  .registro-container label {
+    font-size: 14px;
+    display: block;
+    margin-bottom: 5px;
+  }
+  .registro-container a {
+    color: #ffffff;
+    font-size: 12px;
+    margin-top: 10px;
+    text-decoration: underline;
+    text-align: center;
+  }
+  .registro-container input {
+    width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  width: 100%;
+  box-sizing: border-box;
+  }
+  
+  .registro-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: #7b42f5; /* Original button color */
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .registro-container button:hover {
+    background-color: #643399; /* Darker purple */
+  }
+
+  .error-message {
+    color: red;
+    margin-bottom: 10px;
+  }

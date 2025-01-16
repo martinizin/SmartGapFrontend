@@ -1,1 +1,20 @@
-<p>login works!</p>
+
+<div class="login-container">
+    <img src="assets/logosmart.jpg" alt="Logo">
+    <h2>Login</h2>
+    <form (ngSubmit)="onSubmit()">
+    <div>
+        <label for="correo">Correo</label>
+        <input type="email" id="correo" [(ngModel)]="correo" name="correo" required>
+      </div>
+      <div>
+        <label for="contrasena">Contraseña</label>
+        <input type="password" id="contrasena" [(ngModel)]="contrasena" name="contrasena" required>
+      </div>
+      <div *ngIf="error" class="error-message">{{ error }}</div>
+      <button type="submit">Iniciar sesión</button>
+      <a href="#">¿Olvidaste tu contraseña?</a>
+      <a href="/registro">Regístrate</a>
+    </form>
+  </div>
+  
