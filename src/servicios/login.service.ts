@@ -6,12 +6,12 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class LoginService {
-  private apiUrl = 'http://localhost:8080/api/usuarios'; // Ajusta a tu URL de API
+  private apiUrl = 'http://localhost:8000/api/v1'; // Ajusta a tu URL de API
 
   constructor(private http: HttpClient) {}
 
-  login(correo: string, contrasena: string): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/login`, { correo, contrasena });
+  login(email: string, password: string): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/login`, { email, password});
   }
 
   registrar(usuario: any): Observable<any> {
