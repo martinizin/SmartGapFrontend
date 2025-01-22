@@ -3,32 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Home</title>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <p>PRÓXIMAMENTE</p>
-            <h1>Algo grande está por suceder</h1>
-            <p>¿Estás listo para descubrirlo? Descarga nuestra app y sé parte del cambio.</p>
+    <div class="page">
+        <div class="navbar">
+            <div class="navbar-buttons">
+                <button (click)="navigateToLogin()">LOGIN</button>
+                <button (click)="navigateToRegister()">REGISTRARSE</button>
+            </div>
         </div>
-
-        <div class="buttons">
-            <a href="#" class="register">REGISTER NOW</a>
-            <a href="#" class="login">LOGIN</a>
-        </div>
-
         <div class="logo">
-            <img src="/assets/logosmart.jpg" alt="SmartGap Logo">
+            <img src="/assets/file.png" alt="Disponible en App Store">
         </div>
 
-        <div class="apps">
-            <img src="appstore.png" alt="Disponible en App Store">
-            <img src="googleplay.png" alt="Disponible en Google Play">
+        <div class="content">
+            <div class="header">
+                <p>PRÓXIMAMENTE</p>
+                <h1>Algo grande está por suceder</h1>
+                <p>¿Estás listo para descubrirlo? Descarga nuestra app y sé parte del cambio.</p>
+            </div>
+            <div class="apps">
+                <img src="/assets/apps.png" alt="Disponible en App Store">
+            </div>
         </div>
 
         <div class="footer">
-            <p><a href="http://www.smartgap.com">www.smartgap.com</a></p>
+            <img src="assets/SINERGY.jpg" alt="Sinergy Coders" class="footer-logo">
             <p>&copy; 2025 &#64;synergycoders</p>
         </div>
     </div>

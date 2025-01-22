@@ -1,0 +1,73 @@
+
+.container {
+    padding: 20px;
+    background-color: #f3f4f6; /* Fondo claro */
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para un diseño limpio */
+  }
+  
+  .title {
+    color: #4a90e2; /* Color principal */
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+  
+  form input, form button {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  form button {
+    background-color: #4a90e2; /* Botón con color principal */
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  form button:hover {
+    background-color: #357ab8; /* Efecto hover */
+  }
+  
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .table th, .table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  .table th {
+    background-color: #4a90e2; /* Color de encabezado */
+    color: white;
+    text-align: left;
+  }
+  
+  .table tr:nth-child(even) {
+    background-color: #f9f9f9; /* Fila alterna */
+  }
+  
+  .table tr:hover {
+    background-color: #f1f1f1; /* Efecto hover */
+  }
+  
+  .error {
+    color: #e74c3c; /* Rojo para mensajes de error */
+    font-size: 16px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  

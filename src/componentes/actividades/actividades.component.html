@@ -1,1 +1,36 @@
-<p>actividades works!</p>
+<div class="container">
+    <h2 class="title">Actividades</h2>
+  
+    <form (ngSubmit)="editMode ? updateActividad() : createActividad()">
+      <input type="text" placeholder="Nombre de la Actividad" [(ngModel)]="actividad.nombre_actividad" name="nombre_actividad" required />
+      <textarea placeholder="Descripción" [(ngModel)]="actividad.description" name="description" required></textarea>
+      <input type="date" [(ngModel)]="actividad.fecha_entrega" name="fecha_entrega" required />
+      <input type="text" placeholder="Estado" [(ngModel)]="actividad.estado_actividad" name="estado_actividad" required />
+      <button type="submit">{{ editMode ? 'Actualizar' : 'Crear' }}</button>
+    </form>
+  
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Descripción</th>
+          <th>Fecha Entrega</th>
+          <th>Estado</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let actividad of actividades">
+          <td>{{ actividad.nombre_actividad }}</td>
+          <td>{{ actividad.description }}</td>
+          <td>{{ actividad.fecha_entrega }}</td>
+          <td>{{ actividad.estado_actividad }}</td>
+          <td>
+            <button (click)="editActividad(actividad)">Editar</button>
+            <button (click)="deleteActividad(actividad.id)">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

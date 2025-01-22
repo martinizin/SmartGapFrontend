@@ -13,10 +13,10 @@ import { FormularioHorarioComponent } from '../componentes/formulario-horario/fo
 import { NotificacionesComponent } from '../componentes/notificaciones/notificaciones.component';
 
 export const routes: Routes = [
-    { path: '', redirectTo: '/login', pathMatch: 'full' },
-    { path: 'login', component: LoginComponent },
-    { path: 'registro', component: RegistroComponent},
-    { path: 'perfil', component: PerfilComponent},
+    {path: '', redirectTo: '/home', pathMatch: 'full' },
+    {path: 'login', component: LoginComponent },
+    {path: 'registro', component: RegistroComponent},
+    {path: 'perfil', component: PerfilComponent},
     {path: 'actividades', component: ActividadesComponent},
     {path: 'cambiar-contrasena', component: CambiarContrasenaComponent},
     {path: 'recuperar-contrasena', component: RecuperarContrasenaComponent},

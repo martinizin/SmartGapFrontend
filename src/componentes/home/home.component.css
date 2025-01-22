@@ -1,81 +1,114 @@
-    body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #1a1035;
-            color: white;
-        }
-
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            padding: 20px;
-        }
-
-        .header {
-            margin-top: 50px;
-        }
-
-        .header h1 {
-            font-size: 2.5rem;
-            margin: 0;
-        }
-
-        .header p {
-            font-size: 1rem;
-            margin-top: 10px;
-            color: #ddd;
-        }
-
-        .buttons {
-            margin-top: 20px;
-        }
-
-        .buttons a {
-            text-decoration: none;
-            font-size: 1rem;
-            padding: 10px 20px;
-            border-radius: 5px;
-            margin: 0 10px;
-            color: white;
-            display: inline-block;
-        }
-
-        .register {
-            background-color: #39d353;
-        }
-
-        .login {
-            background-color: #007bff;
-        }
-
-        .logo {
-            margin-top: 30px;
-        }
-
-        .logo img {
-            max-width: 200px;
-        }
-
-        .apps {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-        }
-
-        .apps img {
-            max-width: 150px;
-            margin: 0 10px;
-        }
-
-        .footer {
-            margin-top: 30px;
-            color: #ccc;
-        }
-
-        .footer a {
-            color: #39d353;
-            text-decoration: none;
-        }
+/* Estilo global */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1a1035; /* Fondo oscuro */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Altura de la ventana */
+    overflow: hidden; /* Evita el scroll */
+  }
+  
+  .page {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Distribuye contenido para que navbar, contenido y footer estén alineados */
+    height: 100%;
+  }
+  
+  /* Navbar */
+  .navbar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #000000; /* Negro */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .navbar button {
+    background-color: #007bff; /* Azul para "Login" */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .navbar button.register {
+    background-color: #39d353; /* Verde para "Registrarse" */
+  }
+  
+  .navbar button:hover {
+    background-color: #0056b3; /* Azul oscuro para hover */
+  }
+  
+  .navbar button.register:hover {
+    background-color: #2e9c41; /* Verde oscuro para hover */
+  }
+  
+  /* Contenido principal */
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1; /* Toma todo el espacio disponible entre el navbar y el footer */
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .header h1 {
+    font-size: 2rem;
+    margin: 10px 0;
+  }
+  
+  .header p {
+    font-size: 1rem;
+    color: #ddd; /* Gris claro */
+  }
+  
+  .apps {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .apps img {
+    max-width: 120px;
+    margin: 0 10px;
+  }
+  .logo img {
+    max-width: 250px;
+    margin: 10px;
+   display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+  }
+  
+  /* Footer */
+  .footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #000000; /* Negro */
+    color: #ccc; /* Gris claro */
+    gap: 10px; /* Espaciado entre imagen y texto */
+  }
+  
+  .footer img {
+    max-width: 40px; /* Ajusta el tamaño del logo */
+    height: auto;
+  }
+  
+  .footer p {
+    margin: 0;
+    font-size: 14px;
+  }

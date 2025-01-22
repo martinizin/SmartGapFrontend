@@ -1,1 +1,49 @@
-<p>Bienvenido a tu perfil crack!</p>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil de Usuario</title>
+</head>
+<body>
+    <div class="navbar">
+        <h2>Perfil</h2>
+        <button (click)="cerrarSesion()">Cerrar Sesión</button>
+    </div>
+    <div class="table-container">
+        <h1>Perfil de Usuario</h1>
+        <div *ngIf="error" class="error-message">{{ error }}</div>
+        <table *ngIf="usuario">
+            <thead>
+                <tr>
+                    <th>Campo</th>
+                    <th>Valor</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Nombre</td>
+                    <td>{{ usuario.name }}</td>
+                </tr>
+                <tr>
+                    <td>Correo</td>
+                    <td>{{ usuario.email }}</td>
+                </tr>
+                <tr>
+                    <td>Carrera</td>
+                    <td>{{ usuario.carrera }}</td>
+                </tr>
+                <tr>
+                    <td>Semestre</td>
+                    <td>{{ usuario.semestre }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="buttons-container">
+        <button (click)="registrarActividad()">Registrar Actividad</button>
+        <button (click)="registrarHorario()">Registrar Horario</button>
+    </div>
+</body>
+</html>
