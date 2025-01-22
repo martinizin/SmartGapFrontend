@@ -23,12 +23,13 @@ export class LoginComponent {
   onSubmit() {
     this.loginService.login(this.correo, this.contrasena).subscribe({
       next: (data) => {
-        // Guardar el token o información del usuario
-        localStorage.setItem('access_token', data.token);  // Asumiendo que devuelves un token
-        this.router.navigate(['/perfil']);
+        // Guarda el token en localStorage
+        localStorage.setItem('access_token', data.access_token); // Cambiado a "access_token" según tu respuesta
+        this.router.navigate(['/perfil']); // Redirige al perfil
       },
       error: (err) => {
         this.error = 'Credenciales incorrectas';
+        console.error(err);
       }
     });
   }

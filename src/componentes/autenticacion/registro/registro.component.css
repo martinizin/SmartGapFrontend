@@ -49,9 +49,9 @@
     text-align: center;
   }
   .registro-container input {
-    width: 100%;
+    width: 90%;
   padding: 8px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 14px;

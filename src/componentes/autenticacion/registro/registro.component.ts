@@ -1,45 +1,49 @@
 import { Component } from '@angular/core';
-import { LoginService } from '../../../servicios/login.service';
+import { RegistroService } from '../../../servicios/registro.service';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+
 @Component({
-  selector: 'app-registro',
-  imports: [FormsModule,CommonModule],
+  selector: 'registro-component',
+  imports: [FormsModule, CommonModule],
   templateUrl: './registro.component.html',
-  styleUrl: './registro.component.css'
+  styleUrls: ['./registro.component.css']
 })
 export class RegistroComponent {
   nombre: string = '';
-  apellido: string = '';
   correo: string = '';
+  username: string = '';
   contrasena: string = '';
   carrera: string = '';
   semestre: string = '';
-  genero: string = '';
   error: string = '';
 
-  constructor(private loginService: LoginService, private router: Router) {}
+  constructor(private registroService: RegistroService, private router: Router) {}
 
   onSubmit() {
     const usuario = {
-      nombre: this.nombre,
-      apellido: this.apellido,
-      correo: this.correo,
-      contrasena: this.contrasena,
+      name: this.nombre,
+      email: this.correo,
+      password: this.contrasena,
+      username:this.username,
       carrera: this.carrera,
-      semestre: this.semestre,
-      genero: this.genero
+      semestre: this.semestre
     };
 
-    this.loginService.registrar(usuario).subscribe({
+    this.registroService.registrar(usuario).subscribe({
       next: (data) => {
-        this.router.navigate(['/login']);
+        if (data && data.message) {
+          this.router.navigate(['/login']);
+        } else {
+          this.error = 'Error al registrar el usuario.';
+        }
       },
       error: (err) => {
         this.error = 'Hubo un problema al registrar el usuario';
+        console.error(err);
       }
     });
+    
   }
-
 }

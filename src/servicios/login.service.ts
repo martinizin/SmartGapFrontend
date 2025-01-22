@@ -18,3 +18,4 @@ export class LoginService {
     return this.http.post<any>(`${this.apiUrl}/registro`, usuario);
   }
 }
+
