@@ -14,6 +14,7 @@ import { NotificacionesComponent } from '../componentes/notificaciones/notificac
 
 export const routes: Routes = [
     {path: '', redirectTo: '/home', pathMatch: 'full' },
+    {path: 'home', component: HomeComponent},
     {path: 'login', component: LoginComponent },
     {path: 'registro', component: RegistroComponent},
     {path: 'perfil', component: PerfilComponent},
@@ -26,5 +27,6 @@ export const routes: Routes = [
     {path: 'formulario-actividad', component: FormularioActividadComponent},
     {path: 'formulario-horario', component: FormularioHorarioComponent},
     {path: 'notificaciones', component: NotificacionesComponent},
+    { path: '**', redirectTo: '/home' } // Ruta de fallback
 
 ];
