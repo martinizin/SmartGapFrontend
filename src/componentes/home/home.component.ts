@@ -8,15 +8,14 @@ import { Router } from '@angular/router';
 export class HomeComponent {
   constructor(private router: Router) {}
 
-  navigateToLogin(): void {
-    this.router.navigate(['login']);
+  irLogin() {
+    // Redirigir al componente de registrar actividad
+    this.router.navigate(['/login']);
   }
 
-  navigateToRegister(): void {
-    this.router.navigate(['registro']);
-  }
-  navigateToContact(): void {
-    this.router.navigate(['contact']);
+  irRegistro() {
+    // Redirigir al componente de registrar horario
+    this.router.navigate(['/registro']);
   }
   // Component logic
 }

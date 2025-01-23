@@ -7,7 +7,7 @@ body {
     color: white;
     display: flex;
     flex-direction: column;
-    height: 100vh; /* Altura de la ventana */
+    height: 50vh; /* Altura de la ventana */
     overflow: hidden; /* Evita el scroll */
   }
   
@@ -32,7 +32,7 @@ body {
     background-color: #007bff; /* Azul para "Login" */
     color: white;
     border: none;
-    padding: 10px 20px;
+    padding: 5px 10px;
     border-radius: 5px;
     font-size: 1rem;
     cursor: pointer;
@@ -60,7 +60,7 @@ body {
     align-items: center;
     flex: 1; /* Toma todo el espacio disponible entre el navbar y el footer */
     text-align: center;
-    padding: 20px;
+    padding: 10px;
   }
   
   .header h1 {
@@ -83,12 +83,16 @@ body {
     max-width: 120px;
     margin: 0 10px;
   }
+  .logo {
+    display: flex; /* Hacer que el contenedor use flexbox */
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+    height: 43vh; /* Ajusta según la altura de tu contenedor */
+  }
+
   .logo img {
     max-width: 250px;
     margin: 10px;
-   display: flex;
-    justify-content: center;
-    align-items: center;
     padding: 10px 20px;
   }
   
