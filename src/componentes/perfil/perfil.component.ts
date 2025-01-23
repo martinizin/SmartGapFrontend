@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../../servicios/login.service';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
+import { ActividadesService } from '../../servicios/actividades.service';
 @Component({
   selector: 'app-perfil',
   imports: [CommonModule],
@@ -11,7 +13,7 @@ export class PerfilComponent implements OnInit {
   usuario: any = null;
   error: string = '';
 
-  constructor(private loginService: LoginService) {}
+  constructor(private loginService: LoginService, private router: Router) {}
 
   ngOnInit(): void {
     this.obtenerPerfil();
@@ -29,13 +31,32 @@ export class PerfilComponent implements OnInit {
     });
   }
   registrarActividad() {
-    console.log('Registrando actividad...');
+    // Redirigir al componente de registrar actividad
+    this.router.navigate(['/actividades']);
   }
+
   registrarHorario() {
-    console.log('Registrando hora...');
+    // Redirigir al componente de registrar horario
+    this.router.navigate(['/horarios']);
   }
-  cerrarSesion() {
-    console.log('Cerrando sesión...');
-  }
+  cerrarSesion(): void {
+    const token = localStorage.getItem('access_token'); // Recuperar el token del almacenamiento local
+
+    if (token) {
+      this.loginService.cerrarSesion(token).subscribe(
+        (response) => {
+          console.log('Sesión cerrada con éxito', response);
+          localStorage.removeItem('access_token'); // Eliminar el token del almacenamiento local
+          this.router.navigate(['/login']); // Redirigir al login
+        },
+        (error) => {
+          console.error('Error al cerrar sesión', error);
+        }
+      );
+    } else {
+      console.error('Token no encontrado');
+    }
+
+}
 
 }

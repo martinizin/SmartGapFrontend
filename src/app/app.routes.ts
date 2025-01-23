@@ -13,8 +13,7 @@ import { FormularioHorarioComponent } from '../componentes/formulario-horario/fo
 import { NotificacionesComponent } from '../componentes/notificaciones/notificaciones.component';
 
 export const routes: Routes = [
-    { path: '', redirectTo: '/home', pathMatch: 'full' } ,
-    { path:'home', component: HomeComponent }, // Ruta para el componente Home// Redirección predeterminada
+    {path: '', redirectTo: '/home', pathMatch: 'full' },
     {path: 'login', component: LoginComponent },
     {path: 'registro', component: RegistroComponent},
     {path: 'perfil', component: PerfilComponent},
@@ -26,5 +25,5 @@ export const routes: Routes = [
     {path: 'formulario-actividad', component: FormularioActividadComponent},
     {path: 'formulario-horario', component: FormularioHorarioComponent},
     {path: 'notificaciones', component: NotificacionesComponent},
-    { path: '**', redirectTo: '/home' },   // Redirección para rutas no encontradas
+
 ];

@@ -1,36 +1,110 @@
-<div class="container">
-    <h2 class="title">Actividades</h2>
+<div class="container mt-4">
+  <h2 class="text-center">Gestión de Actividades</h2>
+
+  <!-- Formulario para agregar nueva actividad -->
+  <form (ngSubmit)="agregarActividad()" class="mb-4">
+    <div class="form-group">
+      <label for="descripcion">Descripción:</label>
+      <input
+        id="descripcion"
+        class="form-control"
+        [(ngModel)]="nuevaActividad.descripcion"
+        name="descripcion"
+        placeholder="Descripción de la actividad"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="fecha_entrega">Fecha de Entrega:</label>
+      <input
+        id="fecha_entrega"
+        type="text"
+        class="form-control"
+        [(ngModel)]="nuevaActividad.fecha_entrega"
+        name="fecha_entrega"
+        placeholder="Formato: DD-MM-YYYY"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="id_usuario">ID Usuario:</label>
+      <input
+        id="id_usuario"
+        type="number"
+        class="form-control"
+        [(ngModel)]="nuevaActividad.id_usuario"
+        name="id_usuario"
+        placeholder="ID del usuario"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="estado_actividad">Estado:</label>
+      <input
+        id="estado_actividad"
+        class="form-control"
+        [(ngModel)]="nuevaActividad.estado_actividad"
+        name="estado_actividad"
+        placeholder="Estado de la actividad (e.g., Realizado, Pendiente)"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="nombre_actividad">Nombre de la Actividad:</label>
+      <input
+        id="nombre_actividad"
+        class="form-control"
+        [(ngModel)]="nuevaActividad.nombre_actividad"
+        name="nombre_actividad"
+        placeholder="Nombre de la actividad"
+        required
+      />
+    </div>
+
+    <button class="btn btn-success mt-2" type="submit">Agregar Actividad</button>
+  </form>
+
+  <!-- Tabla para listar las actividades -->
+  <table class="table table-bordered table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th>ID</th>
+        <th>Descripción</th>
+        <th>Fecha de Entrega</th>
+        <th>ID Usuario</th>
+        <th>Estado</th>
+        <th>Nombre Actividad</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let actividad of actividades">
+        <td>{{ actividad.id }}</td>
+        <td>{{ actividad.descripcion }}</td>
+        <td>{{ actividad.fecha_entrega }}</td>
+        <td>{{ actividad.id_usuario }}</td>
+        <td>{{ actividad.estado_actividad }}</td>
+        <td>{{ actividad.nombre_actividad }}</td>
+        <td>
+          <button
+            class="btn btn-warning btn-sm"
+            (click)="editarActividad(actividad.id, actividad)"
+          >
+            Editar
+          </button>
+          <button
+            class="btn btn-danger btn-sm"
+            (click)="eliminarActividad(actividad.id)"
+          >
+            Eliminar
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
   
-    <form (ngSubmit)="editMode ? updateActividad() : createActividad()">
-      <input type="text" placeholder="Nombre de la Actividad" [(ngModel)]="actividad.nombre_actividad" name="nombre_actividad" required />
-      <textarea placeholder="Descripción" [(ngModel)]="actividad.description" name="description" required></textarea>
-      <input type="date" [(ngModel)]="actividad.fecha_entrega" name="fecha_entrega" required />
-      <input type="text" placeholder="Estado" [(ngModel)]="actividad.estado_actividad" name="estado_actividad" required />
-      <button type="submit">{{ editMode ? 'Actualizar' : 'Crear' }}</button>
-    </form>
-  
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Nombre</th>
-          <th>Descripción</th>
-          <th>Fecha Entrega</th>
-          <th>Estado</th>
-          <th>Acciones</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let actividad of actividades">
-          <td>{{ actividad.nombre_actividad }}</td>
-          <td>{{ actividad.description }}</td>
-          <td>{{ actividad.fecha_entrega }}</td>
-          <td>{{ actividad.estado_actividad }}</td>
-          <td>
-            <button (click)="editActividad(actividad)">Editar</button>
-            <button (click)="deleteActividad(actividad.id)">Eliminar</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  
+</div>

@@ -1,63 +1,151 @@
+/* Estilo global para el contenedor principal */
 .container {
-    padding: 20px;
-    background-color: #f3f4f6; /* Fondo claro */
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para un diseño más limpio */
-  }
-  
-  .title {
-    color: #4a90e2; /* Color principal */
-    font-size: 24px;
-    margin-bottom: 20px;
-    text-align: center;
-  }
-  
-  form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin-bottom: 20px;
-  }
-  
-  form input, form textarea, form button {
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-  }
-  
-  form button {
-    background-color: #4a90e2; /* Botón con color principal */
-    color: white;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  form button:hover {
-    background-color: #357ab8; /* Efecto hover */
-  }
-  
-  .table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  .table th, .table td {
-    border: 1px solid #ddd;
-    padding: 8px;
-  }
-  
-  .table th {
-    background-color: #4a90e2; /* Color de encabezado */
-    color: white;
-  }
-  
-  .table tr:nth-child(even) {
-    background-color: #f9f9f9; /* Fila alterna */
-  }
-  
-  .table tr:hover {
-    background-color: #f1f1f1; /* Efecto hover */
-  }
-  
+  background-color: #1a1035; /* Fondo morado oscuro */
+  color: white; /* Texto en blanco para buen contraste */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra sutil */
+}
+
+/* Títulos */
+h2 {
+  text-align: center;
+  color: #6a5acd; /* Morado intermedio */
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Sombra para resaltar */
+}
+
+/* Formularios */
+form {
+  background-color: #000000; /* Fondo negro */
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra sutil */
+}
+
+form label {
+  color: #87cefa; /* Azul claro */
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+form input,
+form button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+form input {
+  background-color: #2a2a3b; /* Gris oscuro */
+  color: white;
+  outline: none;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+form input:focus {
+  border: 1px solid #6a5acd; /* Morado intermedio */
+  box-shadow: 0 0 5px #6a5acd;
+}
+
+form button {
+  background-color: #6a5acd; /* Morado intermedio */
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: #483d8b; /* Morado oscuro */
+}
+
+/* Tabla */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: #2a2a3b; /* Gris oscuro */
+  color: white;
+  border: 1px solid #6a5acd; /* Morado */
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+thead {
+  background-color: #6a5acd; /* Morado intermedio */
+  color: white;
+}
+
+thead th {
+  padding: 10px;
+  text-align: center;
+  font-size: 1rem;
+  border-bottom: 2px solid #483d8b; /* Línea inferior morado oscuro */
+}
+
+tbody tr {
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #1e1e2f; /* Gris muy oscuro */
+}
+
+tbody tr:hover {
+  background-color: #483d8b; /* Morado oscuro */
+}
+
+tbody td {
+  padding: 10px;
+  border-bottom: 1px solid #6a5acd; /* Morado */
+}
+
+/* Botones de acción */
+button {
+  padding: 8px 12px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button.btn-warning {
+  background-color: #6a5acd; /* Morado intermedio */
+  color: white;
+}
+
+button.btn-warning:hover {
+  background-color: #483d8b; /* Morado oscuro */
+}
+
+button.btn-danger {
+  background-color: #8b0000; /* Rojo oscuro */
+  color: white;
+}
+
+button.btn-danger:hover {
+  background-color: #b22222; /* Rojo más claro */
+}
+
+/* Espaciado general */
+.form-group {
+  margin-bottom: 15px;
+}
+
+.table-hover tbody tr:hover {
+  background-color: #483d8b; /* Morado oscuro para hover */
+}
+
+/* Resaltado de títulos o elementos clave */
+.text-center {
+  color: #87cefa; /* Azul claro */
+}

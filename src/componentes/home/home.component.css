@@ -83,18 +83,12 @@ body {
     max-width: 120px;
     margin: 0 10px;
   }
-  .logo {
-    display: flex; /* Hacer que el contenedor use flexbox */
-    justify-content: center; /* Centrar horizontalmente */
-    align-items: center; /* Centrar verticalmente */
-    height: 43vh; /* Ajusta según la altura de tu contenedor */
-  }
-
   .logo img {
     max-width: 250px;
     margin: 10px;
     padding: 10px 20px;
   }
+  
   
   /* Footer */
   .footer {
@@ -108,7 +102,7 @@ body {
   }
   
   .footer img {
-    max-width: 40px; /* Ajusta el tamaño del logo */
+    max-width:20px; /* Ajusta el tamaño del logo */
     height: auto;
   }
   

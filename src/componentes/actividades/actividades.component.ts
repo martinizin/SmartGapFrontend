@@ -11,71 +11,76 @@ import { CommonModule } from '@angular/common';
 })
 export class ActividadesComponent implements OnInit {
   actividades: any[] = [];
-  actividad: any = { nombre_actividad: '', description: '', fecha_entrega: '', estado_actividad: '' }; // Para crear y actualizar
-  error: string = '';
-  editMode: boolean = false;
-  editingId: number | null = null;
+  nuevaActividad = {
+    descripcion: '',
+    fecha_entrega: '',
+    id_usuario: 0,
+    estado_actividad: '',
+    nombre_actividad: ''
+  };
 
   constructor(private actividadesService: ActividadesService) {}
 
   ngOnInit(): void {
-    this.loadActividades();
+    this.obtenerActividades();
   }
-
-  loadActividades(): void {
-    this.actividadesService.getActividades().subscribe({
-      next: (data) => {
-        this.actividades = data.data;
-      },
-      error: () => {
-        this.error = 'Error al cargar las actividades';
-      }
-    });
-  }
-
-  createActividad(): void {
-    this.actividadesService.createActividad(this.actividad).subscribe({
-      next: () => {
-        this.loadActividades();
-        this.actividad = { nombre_actividad: '', description: '', fecha_entrega: '', estado_actividad: '' };
-      },
-      error: () => {
-        this.error = 'Error al crear la actividad';
-      }
-    });
-  }
-
-  editActividad(actividad: any): void {
-    this.editMode = true;
-    this.editingId = actividad.id;
-    this.actividad = { ...actividad };
-  }
-
-  updateActividad(): void {
-    if (this.editingId !== null) {
-      this.actividadesService.updateActividad(this.editingId, this.actividad).subscribe({
-        next: () => {
-          this.loadActividades();
-          this.editMode = false;
-          this.actividad = { nombre_actividad: '', description: '', fecha_entrega: '', estado_actividad: '' };
-          this.editingId = null;
-        },
-        error: () => {
-          this.error = 'Error al actualizar la actividad';
+  obtenerActividades(): void {
+    this.actividadesService.obtenerActividades().subscribe(
+      (response) => {
+        // Asegúrate de que 'response' sea un arreglo
+        if (Array.isArray(response)) {
+          this.actividades = response; // Si es un arreglo directamente
+        } else if (response.data && Array.isArray(response.data)) {
+          this.actividades = response.data; // Si el arreglo está dentro de 'data'
+        } else {
+          console.error('La respuesta no contiene un arreglo válido:', response);
         }
-      });
-    }
-  }
-
-  deleteActividad(id: number): void {
-    this.actividadesService.deleteActividad(id).subscribe({
-      next: () => {
-        this.loadActividades();
       },
-      error: () => {
-        this.error = 'Error al eliminar la actividad';
+      (error) => {
+        console.error('Error al obtener actividades:', error);
       }
-    });
+    );
   }
 
+  // Crear una nueva actividad
+  agregarActividad(): void {
+    // Convertir id_usuario a string antes de enviar
+    const nuevaActividad = { ...this.nuevaActividad, id_usuario: this.nuevaActividad.id_usuario.toString() };
+    this.actividadesService.crearActividad(nuevaActividad).subscribe(
+      (response) => {
+        console.log('Actividad registrada con éxito:', response);
+        this.obtenerActividades(); // Refrescar lista de actividades
+      },
+      (error) => {
+        console.error('Error al registrar actividad:', error);
+      }
+    );
+  }
+  
+
+  // Actualizar una actividad
+  editarActividad(id: number, actividad: any): void {
+    this.actividadesService.actualizarActividad(id, actividad).subscribe(
+      (response) => {
+        console.log('Actividad actualizada con éxito', response);
+        this.obtenerActividades(); // Actualizar la lista
+      },
+      (error) => {
+        console.error('Error al actualizar actividad', error);
+      }
+    );
+  }
+
+  // Eliminar una actividad
+  eliminarActividad(id: number): void {
+    this.actividadesService.eliminarActividad(id).subscribe(
+      (response) => {
+        console.log('Actividad eliminada con éxito', response);
+        this.obtenerActividades(); // Actualizar la lista
+      },
+      (error) => {
+        console.error('Error al eliminar actividad', error);
+      }
+    );
+  }
 }

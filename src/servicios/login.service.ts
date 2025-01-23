@@ -26,5 +26,12 @@ export class LoginService {
 
     return this.http.get<any>(`${this.apiUrl}/user`, { headers });
   }
+  cerrarSesion(token: string): Observable<any> {
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+
+    return this.http.get(`${this.apiUrl}/logout`, { headers });
+  }
 }
 
