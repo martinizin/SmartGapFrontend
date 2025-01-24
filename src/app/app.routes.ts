@@ -11,7 +11,6 @@ import { HorariosComponent } from '../componentes/horarios/horarios.component';
 import { FormularioActividadComponent } from '../componentes/formulario-actividad/formulario-actividad.component';
 import { FormularioHorarioComponent } from '../componentes/formulario-horario/formulario-horario.component';
 import { NotificacionRegistroComponent } from '../componentes/notificaciones/notificacion-registro/notificacion-registro.component';
-import path from 'path';
 
 export const routes: Routes = [
     {path: '', redirectTo: '/home', pathMatch: 'full' },

@@ -1,16 +1,10 @@
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil de Usuario</title>
-</head>
-<body>
     <div class="navbar">
         <h2>Bienvenido/a a SmartGap  {{ usuario.username }}!</h2>
         <button (click)="cerrarSesion()">Cerrar Sesión</button>
+        <button (click)="irNotificaciones()">Notificaciones</button>
     </div>
+   
+
     <div class="table-container">
         <h1>{{ usuario.name }}</h1>
         <div *ngIf="error" class="error-message">{{ error }}</div>
@@ -42,8 +36,7 @@
         </table>
     </div>
     <div class="buttons-container">
-        <button (click)="registrarActividad()">Registrar Actividad</button>
-        <button (click)="registrarHorario()">Registrar Horario</button>
+        <button (click)="registrarActividad()">Mis Actividades</button>
+        <button (click)="registrarHorario()">Horario</button>
     </div>
-</body>
-</html>
+

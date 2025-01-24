@@ -1,16 +1,6 @@
 
 <div class="container">
-    <h2 class="title">Horarios</h2>
-  
-    <form (ngSubmit)="editMode ? updateHorario() : createHorario()">
-      <input type="text" placeholder="Materia" [(ngModel)]="horario.materia" name="materia" required />
-      <input type="time" placeholder="Hora Inicio" [(ngModel)]="horario.hora_inicio" name="hora_inicio" required />
-      <input type="time" placeholder="Hora Fin" [(ngModel)]="horario.hora_fin" name="hora_fin" required />
-      <input type="text" placeholder="Día" [(ngModel)]="horario.dia" name="dia" required />
-      <input type="text" placeholder="ID Usuario" [(ngModel)]="horario.id_usuario" name="id_usuario" required />
-      <button type="submit">{{ editMode ? 'Actualizar' : 'Crear' }}</button>
-    </form>
-  
+    <h2 class="title">Horario</h2>
     <table class="table">
       <thead>
         <tr>
@@ -28,13 +18,14 @@
           <td>{{ horario.hora_fin }}</td>
           <td>{{ horario.dia }}</td>
           <td>
-            <button (click)="editHorario(horario)">Editar</button>
+            <button (click)="updateHorario(horario)">Editar</button>
             <button (click)="deleteHorario(horario.id)">Eliminar</button>
           </td>
         </tr>
       </tbody>
     </table>
     <div>
+      <button (click)="crearHorario()">Agregar Materia</button>
       <button (click)="irPerfil()">Regresar</button>
     </div>
   </div>

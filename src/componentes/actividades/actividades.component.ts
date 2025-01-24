@@ -3,6 +3,7 @@ import { ActividadesService } from '../../servicios/actividades.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-actividades',
@@ -24,6 +25,11 @@ export class ActividadesComponent implements OnInit {
   ngOnInit(): void {
     this.obtenerActividades();
   }
+  crearActivididad(): void {
+    // Redirige a la ruta para crear una nueva actividad
+    this.router.navigate(['formulario-actividad']);
+  }
+
   obtenerActividades(): void {
     this.actividadesService.obtenerActividades().subscribe(
       (response) => {
@@ -31,7 +37,9 @@ export class ActividadesComponent implements OnInit {
         if (Array.isArray(response)) {
           this.actividades = response; // Si es un arreglo directamente
         } else if (response.data && Array.isArray(response.data)) {
-          this.actividades = response.data; // Si el arreglo está dentro de 'data'
+          this.actividades = response.data.filter((actividad: any) => actividad.id_usuario == localStorage.getItem('id'));
+          debugger
+           // Si el arreglo está dentro de 'data'
         } else {
           console.error('La respuesta no contiene un arreglo válido:', response);
         }
@@ -40,10 +48,6 @@ export class ActividadesComponent implements OnInit {
         console.error('Error al obtener actividades:', error);
       }
     );
-  }
-  irPerfil() {
-    // Redirigir al componente de registrar horario
-    this.router.navigate(['/perfil']);
   }
 
   // Crear una nueva actividad
@@ -87,6 +91,9 @@ export class ActividadesComponent implements OnInit {
       }
     );
   }
-
   
+  irPerfil() {
+    // Redirigir al componente de registrar horario
+    this.router.navigate(['/perfil']);
+  }
 }

@@ -1,48 +1,51 @@
-
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 20px;
-    background-color: #f3f4f6; /* Fondo claro */
-    color: #333; /* Texto oscuro */
+    background-color: #0A0F1A; /* Fondo oscuro armonizando con el logo */
+    color: #FFFFFF; /* Texto blanco para contraste */
 }
 
 h1 {
     text-align: center;
-    color: #4a90e2; /* Azul principal */
+    color: #7c3ecc; /* Rosa vibrante del logo */
 }
 
 .navbar {
-    background-color: #4a90e2; /* Azul principal */
+    background-color: #5A32F0; /* Azul púrpura del logo */
     color: white;
     padding: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    border-radius: 10px; /* Sombra más marcada */
 }
 
 .navbar button {
-    background-color: #e74c3c; /* Rojo brillante */
+    background-color: #cc3e51; /* Rosa vibrante para los botones */
     color: white;
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .navbar button:hover {
-    background-color: #c0392b; /* Rojo oscuro para hover */
+    background-color : #7c3ecc; /* Rosa más oscuro para hover */
+    transform: scale(1.05); 
+    border-radius: 10px;/* Animación sutil al pasar el mouse */
 }
 
 .table-container {
     max-width: 800px;
     margin: 20px auto;
-    background-color: white;
+    background-color: #131B2B; /* Fondo oscuro para la tabla */
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra más destacada */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Sombra más pronunciada */
+    color: #FFFFFF; /* Texto blanco dentro de la tabla */
 }
 
 table {
@@ -53,16 +56,24 @@ table {
 th, td {
     padding: 10px;
     text-align: left;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #4A4A4A; /* Línea divisoria oscura */
 }
 
 th {
-    background-color: #4a90e2; /* Azul principal */
+    background-color: #5A32F0; /* Azul púrpura del logo */
     color: white;
 }
 
+tr:nth-child(even) {
+    background-color: #1E2740; /* Fila alterna azul oscuro */
+}
+
+tr:hover {
+    background-color: #252E49; /* Hover más claro */
+}
+
 .error-message {
-    color: #e74c3c; /* Rojo para errores */
+    color: #FF4F5E; /* Rojo vibrante para errores */
     text-align: center;
     font-weight: bold;
 }
@@ -75,15 +86,16 @@ th {
 }
 
 .buttons-container button {
-    background-color: #4a90e2; /* Azul principal */
+    background-color: #5A32F0; /* Azul púrpura del logo */
     color: white;
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .buttons-container button:hover {
-    background-color: #357ab8; /* Azul oscuro para hover */
+    background-color: #4027B3; /* Azul púrpura más oscuro para hover */
+    transform: scale(1.05); /* Animación sutil al pasar el mouse */
 }

@@ -43,11 +43,13 @@ export class HorariosService {
   }
 
   updateHorario(id: number, horario: any): Observable<any> {
-    return this.http.put<any>(`${this.apiUrl}/${id}`, horario);
+    const headers = this.crearHeadersConToken();
+    return this.http.put(`${this.apiUrl}/${id}`, horario, { headers });
   }
 
   deleteHorario(id: number): Observable<any> {
-    return this.http.delete<any>(`${this.apiUrl}/${id}`);
+    const headers = this.crearHeadersConToken();
+    return this.http.delete(`${this.apiUrl}/${id}`, { headers });
   }
 
   

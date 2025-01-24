@@ -24,7 +24,9 @@ export class LoginComponent {
     this.loginService.login(this.correo, this.contrasena).subscribe({
       next: (data) => {
         // Guarda el token en localStorage
-        localStorage.setItem('access_token', data.access_token); // Cambiado a "access_token" según tu respuesta
+        localStorage.setItem('access_token', data.access_token);
+        localStorage.setItem('id', data.user.id);
+         // Cambiado a "access_token" según tu respuesta
         this.router.navigate(['/perfil']); // Redirige al perfil
       },
       error: (err) => {

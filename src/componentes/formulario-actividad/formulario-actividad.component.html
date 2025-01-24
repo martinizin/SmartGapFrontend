@@ -1,1 +1,72 @@
-<p>formulario-actividad works!</p>
+<div class="form-container">
+  <h1 class="text-center">{{ editMode ? 'Editar Actividad' : 'Registrar Actividad' }}</h1>
+
+  <form (ngSubmit)="guardarActividad()">
+    <div class="form-group">
+      <label for="descripcion">Descripción</label>
+      <input
+        id="descripcion"
+        class="form-control"
+        [(ngModel)]="actividad.descripcion"
+        name="descripcion"
+        placeholder="Descripción de la actividad"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="fecha_entrega">Fecha de Entrega</label>
+      <input
+        id="fecha_entrega"
+        type="text"
+        class="form-control"
+        [(ngModel)]="actividad.fecha_entrega"
+        name="fecha_entrega"
+        placeholder="Formato: DD-MM-YYYY"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="id_usuario">ID Usuario</label>
+      <input
+        id="id_usuario"
+        type="string"
+        class="form-control"
+        [(ngModel)]="actividad.id_usuario"
+        name="id_usuario"
+        placeholder="ID del usuario"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="estado_actividad">Estado</label>
+      <input
+        id="estado_actividad"
+        class="form-control"
+        [(ngModel)]="actividad.estado_actividad"
+        name="estado_actividad"
+        placeholder="Estado de la actividad (e.g., Realizado, Pendiente)"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="nombre_actividad">Nombre de la Actividad</label>
+      <input
+        id="nombre_actividad"
+        class="form-control"
+        [(ngModel)]="actividad.nombre_actividad"
+        name="nombre_actividad"
+        placeholder="Nombre de la actividad"
+        required
+      />
+    </div>
+
+    <div class="form-buttons text-center mt-3">
+      <button class="btn btn-success" type="submit">{{ editMode ? 'Actualizar' : 'Guardar' }}</button>
+      <button class="btn btn-secondary ml-2" type="button" (click)="cancelar()">Cancelar</button>
+    </div>
+  </form>
+</div>

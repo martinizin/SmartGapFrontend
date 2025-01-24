@@ -1,53 +1,71 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <div class="form-container">
-        <h1>Registro de Horario</h1>
-        <form action="#" method="POST">
-            <div class="form-group">
-                <label for="materia">Materia</label>
-                <input type="text" id="materia" name="materia" placeholder="Ingrese la materia" required>
-            </div>
-
-            <div class="form-group">
-                <label for="hora_inicio">Hora de Inicio</label>
-                <input type="time" id="hora_inicio" name="hora_inicio" required>
-            </div>
-
-            <div class="form-group">
-                <label for="hora_fin">Hora de Fin</label>
-                <input type="time" id="hora_fin" name="hora_fin" required>
-            </div>
-
-            <div class="form-group">
-                <label for="dia">Día</label>
-                <select id="dia" name="dia" required>
-                    <option value="">Seleccione el día</option>
-                    <option value="Lunes">Lunes</option>
-                    <option value="Martes">Martes</option>
-                    <option value="Miércoles">Miércoles</option>
-                    <option value="Jueves">Jueves</option>
-                    <option value="Viernes">Viernes</option>
-                    <option value="Sábado">Sábado</option>
-                    <option value="Domingo">Domingo</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label for="id_usuario">ID Usuario</label>
-                <input type="number" id="id_usuario" name="id_usuario" placeholder="Ingrese el ID del usuario" required>
-            </div>
-
-            <div class="form-buttons">
-                <button type="submit" class="submit">Guardar Horario</button>
-                <button type="reset" class="reset">Limpiar </button>
-            </div>
-        </form>
+<div class="form-container">
+    <h1>{{ editMode ? 'Editar Horario' : 'Registro de Horario' }}</h1>
+    <form (ngSubmit)="guardarHorario()">
+        <div class="form-group">
+            <label for="materia">Materia</label>
+            <input 
+                type="text" 
+                id="materia" 
+                name="materia" 
+                placeholder="Ingrese la materia" 
+                [(ngModel)]="horario.materia" 
+                required>
         </div>
-</body>
-</html>
+
+        <div class="form-group">
+            <label for="hora_inicio">Hora de Inicio</label>
+            <input 
+                type="time" 
+                id="hora_inicio" 
+                name="hora_inicio" 
+                [(ngModel)]="horario.hora_inicio" 
+                required>
+        </div>
+
+        <div class="form-group">
+            <label for="hora_fin">Hora de Fin</label>
+            <input 
+                type="time" 
+                id="hora_fin" 
+                name="hora_fin" 
+                [(ngModel)]="horario.hora_fin" 
+                required>
+        </div>
+
+        <div class="form-group">
+            <label for="dia">Día</label>
+            <select 
+                id="dia" 
+                name="dia" 
+                [(ngModel)]="horario.dia" 
+                required>
+                <option value="" disabled>Seleccione el día</option>
+                <option value="Lunes">Lunes</option>
+                <option value="Martes">Martes</option>
+                <option value="Miercoles">Miércoles</option>
+                <option value="Jueves">Jueves</option>
+                <option value="Viernes">Viernes</option>
+                <option value="Sábado">Sábado</option>
+                <option value="Domingo">Domingo</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="id_usuario">ID Usuario</label>
+            <input 
+                type="number" 
+                id="id_usuario" 
+                name="id_usuario" 
+                placeholder="Ingrese el ID del usuario" 
+                [(ngModel)]="horario.id_usuario" 
+                required>
+        </div>
+    </form>
+
+        <div class="form-buttons">
+            <button (click)="createHorario()">Guardar Materia</button>
+            <button type="button" class="reset" (click)="resetFormulario()">Limpiar</button>
+            <button (click)="irHorario()">Regresar</button>
+        </div>
+</div>
+

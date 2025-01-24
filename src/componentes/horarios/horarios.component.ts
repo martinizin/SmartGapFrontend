@@ -26,6 +26,10 @@ export class HorariosComponent implements OnInit {
     // Redirigir al componente de registrar horario
     this.router.navigate(['/perfil']);
   }
+  crearHorario() {
+    // Redirigir al componente de registrar horario
+    this.router.navigate(['/formulario-horario']);
+  }
 
   loadHorarios(): void {
     this.horariosService.getHorarios().subscribe({
@@ -37,39 +41,16 @@ export class HorariosComponent implements OnInit {
       }
     });
   }
-
-  createHorario(): void {
-    this.horariosService.createHorario(this.horario).subscribe({
-      next: () => {
-        this.loadHorarios();
-        this.horario = { materia: '', hora_inicio: '', hora_fin: '', dia: '' };
-      },
-      error: () => {
-        this.error = 'Error al crear el horario';
-      }
-    });
-  }
-
+  
   editHorario(horario: any): void {
     this.editMode = true;
     this.editingId = horario.id;
     this.horario = { ...horario };
   }
 
-  updateHorario(): void {
-    if (this.editingId !== null) {
-      this.horariosService.updateHorario(this.editingId, this.horario).subscribe({
-        next: () => {
-          this.loadHorarios();
-          this.editMode = false;
-          this.horario = { materia: '', hora_inicio: '', hora_fin: '', dia: '' };
-          this.editingId = null;
-        },
-        error: () => {
-          this.error = 'Error al actualizar el horario';
-        }
-      });
-    }
+  updateHorario(horario: any): void {
+    // Redirige al componente del formulario con el ID del horario seleccionado
+    this.router.navigate([horario.id]);
   }
 
   deleteHorario(id: number): void {

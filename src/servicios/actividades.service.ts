@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { filter, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -31,8 +31,16 @@ export class ActividadesService {
     return this.http.get(this.apiUrl, { headers });
   }
 
+//   obtenerActividadporId(): Observable<any> {
+// debugger
+//     const headers = this.crearHeadersConToken();
+//     const id_usuario = localStorage.getItem('id');
+//     let vari= this.http.get(this.apiUrl, {headers});
+//     vari.pipe(filter((actividad: any) => actividad.id_usuario === id_usuario));
+//     return vari;
+//   }
+
   // Crear una nueva actividad
-  
   crearActividad(actividad: any): Observable<any> {
     const token = localStorage.getItem('access_token'); // Recuperar el access_token desde el almacenamiento local
     const headers = {

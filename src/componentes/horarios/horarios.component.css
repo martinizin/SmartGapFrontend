@@ -1,73 +1,82 @@
-
 .container {
-    padding: 20px;
-    background-color: #f3f4f6; /* Fondo claro */
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para un diseño limpio */
-  }
-  
-  .title {
-    color: #4a90e2; /* Color principal */
-    font-size: 24px;
-    margin-bottom: 20px;
-    text-align: center;
-  }
-  
-  form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin-bottom: 20px;
-  }
-  
-  form input, form button {
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-  }
-  
-  form button {
-    background-color: #4a90e2; /* Botón con color principal */
-    color: white;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  form button:hover {
-    background-color: #357ab8; /* Efecto hover */
-  }
-  
-  .table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-  }
-  
-  .table th, .table td {
-    border: 1px solid #ddd;
-    padding: 8px;
-  }
-  
-  .table th {
-    background-color: #4a90e2; /* Color de encabezado */
-    color: white;
-    text-align: left;
-  }
-  
-  .table tr:nth-child(even) {
-    background-color: #f9f9f9; /* Fila alterna */
-  }
-  
-  .table tr:hover {
-    background-color: #f1f1f1; /* Efecto hover */
-  }
-  
-  .error {
-    color: #e74c3c; /* Rojo para mensajes de error */
-    font-size: 16px;
-    margin-bottom: 20px;
-    text-align: center;
-  }
-  
+  padding: 20px;
+  background-color: #0A0F1A; /* Fondo oscuro para armonizar con el logo */
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada para contraste */
+}
+
+.title {
+  color: #EF52E7; /* Color rosa vibrante del logo */
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: bold;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+form input, form button {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #4A4A4A; /* Borde oscuro para integrar el diseño */
+  border-radius: 5px;
+  background-color: #131B2B; /* Fondo de campos acorde con el logo */
+  color: #FFFFFF; /* Texto blanco para contraste */
+}
+
+form input::placeholder {
+  color: #9DA3B4; /* Placeholder en gris claro */
+}
+
+form button {
+  background-color: #EF52E7; /* Botón con rosa vibrante */
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+form button:hover {
+  background-color: #B43AB1; /* Hover en un rosa más oscuro */
+  transform: scale(1.05); /* Ligera animación al pasar el mouse */
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  color: #FFFFFF; /* Texto blanco en la tabla */
+  background-color: #131B2B; /* Fondo oscuro para la tabla */
+}
+
+.table th, .table td {
+  border: 1px solid #4A4A4A;
+  padding: 8px;
+}
+
+.table th {
+  background-color: #5A32F0; /* Azul púrpura del logo */
+  color: white;
+  text-align: left;
+}
+
+.table tr:nth-child(even) {
+  background-color: #1E2740; /* Fila alterna en azul oscuro */
+}
+
+.table tr:hover {
+  background-color: #252E49; /* Hover en un azul más claro */
+}
+
+.error {
+  color: #FF4F5E; /* Rojo más vivo y contrastante */
+  font-size: 16px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: bold;
+}
