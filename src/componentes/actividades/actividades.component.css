@@ -1,151 +1,145 @@
-/* Estilo global para el contenedor principal */
-.container {
-  background-color: #1a1035; /* Fondo morado oscuro */
-  color: white; /* Texto en blanco para buen contraste */
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra sutil */
+/* Estilo global */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #0A0F1A; /* Fondo del logotipo */
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Ocupa toda la pantalla */
+  overflow: hidden; /* Elimina scroll */
 }
 
-/* Títulos */
+.container {
+  width: 90%;
+  max-width: 1200px; /* Ancho máximo */
+  background-color: #1A1035; /* Morado oscuro del logotipo */
+  color: white; /* Texto blanco */
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); /* Sombra envolvente */
+}
+
 h2 {
   text-align: center;
-  color: #6a5acd; /* Morado intermedio */
+  font-size: 2rem;
+  color: #EF52E7; /* Rosa vibrante del logotipo */
   margin-bottom: 20px;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Sombra para resaltar */
-}
-
-/* Formularios */
-form {
-  background-color: #000000; /* Fondo negro */
-  padding: 20px;
-  border-radius: 10px;
-  margin-bottom: 30px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra sutil */
-}
-
-form label {
-  color: #87cefa; /* Azul claro */
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-
-form input,
-form button {
-  width: 100%;
-  padding: 10px;
-  margin-top: 10px;
-  border: none;
-  border-radius: 5px;
-  font-size: 1rem;
-}
-
-form input {
-  background-color: #2a2a3b; /* Gris oscuro */
-  color: white;
-  outline: none;
-  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-form input:focus {
-  border: 1px solid #6a5acd; /* Morado intermedio */
-  box-shadow: 0 0 5px #6a5acd;
-}
-
-form button {
-  background-color: #6a5acd; /* Morado intermedio */
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-form button:hover {
-  background-color: #483d8b; /* Morado oscuro */
+  text-shadow: 0 3px 5px rgba(239, 82, 231, 0.5);
 }
 
 /* Tabla */
-table {
+.table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
-  background-color: #2a2a3b; /* Gris oscuro */
-  color: white;
-  border: 1px solid #6a5acd; /* Morado */
   border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  overflow: hidden; /* Redondea esquinas */
 }
 
-thead {
-  background-color: #6a5acd; /* Morado intermedio */
-  color: white;
+.table thead {
+  background-color: #6A5ACD; /* Morado intermedio */
+  color: black;
 }
 
-thead th {
-  padding: 10px;
+.table th, .table td {
+  padding: 12px;
   text-align: center;
-  font-size: 1rem;
-  border-bottom: 2px solid #483d8b; /* Línea inferior morado oscuro */
+  border-bottom: 1px solid #483D8B; /* Líneas suaves */
 }
 
-tbody tr {
-  text-align: center;
-  transition: background-color 0.3s ease;
+.table tbody tr:nth-child(even) {
+  background-color: #1E1E2F; /* Gris oscuro alternado */
 }
 
-tbody tr:nth-child(odd) {
-  background-color: #1e1e2f; /* Gris muy oscuro */
+.table tbody tr:hover {
+  background-color: #483D8B; /* Morado oscuro en hover */
+  color: black; /* Texto blanco claro */
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-tbody tr:hover {
-  background-color: #483d8b; /* Morado oscuro */
-}
-
-tbody td {
-  padding: 10px;
-  border-bottom: 1px solid #6a5acd; /* Morado */
-}
-
-/* Botones de acción */
+/* Botones */
 button {
-  padding: 8px 12px;
   font-size: 0.9rem;
   font-weight: bold;
+  padding: 10px 15px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: transform 0.2s ease, background-color 0.3s ease;
 }
 
-button.btn-warning {
-  background-color: #6a5acd; /* Morado intermedio */
-  color: white;
+button:hover {
+  transform: scale(1.05);
 }
 
-button.btn-warning:hover {
-  background-color: #483d8b; /* Morado oscuro */
+.btn-success {
+  background-color: #643399; /* Verde vibrante */
+  color: #0A0F1A;
 }
 
-button.btn-danger {
-  background-color: #8b0000; /* Rojo oscuro */
-  color: white;
+.btn-success:hover {
+  background-color: #643399; /* Verde más oscuro */
 }
 
-button.btn-danger:hover {
-  background-color: #b22222; /* Rojo más claro */
+.btn-primary {
+  background-color: #643399; /* Rosa vibrante */
+  color: #FFFFFF;
 }
 
-/* Espaciado general */
-.form-group {
-  margin-bottom: 15px;
+.btn-primary:hover {
+  background-color: #630756; /* Rosa más oscuro */
 }
 
-.table-hover tbody tr:hover {
-  background-color: #483d8b; /* Morado oscuro para hover */
+.btn-danger {
+  background-color:#643399; /* Rojo suave */
+  color: #FFFFFF;
 }
 
-/* Resaltado de títulos o elementos clave */
-.text-center {
-  color: #87cefa; /* Azul claro */
+.btn-danger:hover {
+  background-color: #A31D29; /* Rojo más oscuro */
+}
+
+.btn-secondary {
+  background-color: #643399; /* Morado oscuro */
+  color: #FFFFFF;
+}
+
+.btn-secondary:hover {
+  background-color: #643399; /* Morado intermedio */
+}
+
+/* Divisiones entre botones */
+.d-flex {
+  display: flex;
+  gap: 10px;
+}
+
+/* Centrado de botones de acción */
+.text-center button {
+  margin-top: 20px;
+}
+
+/* Optimización para pantallas pequeñas */
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  .table th, .table td {
+    padding: 8px;
+    font-size: 0.9rem;
+  }
+
+  button {
+    font-size: 0.8rem;
+    padding: 8px 12px;
+  }
 }

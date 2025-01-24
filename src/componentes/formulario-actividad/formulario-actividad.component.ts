@@ -11,39 +11,50 @@ import { CommonModule } from '@angular/common';
   styleUrl: './formulario-actividad.component.css'
 })
 export class FormularioActividadComponent {
+  estadosDisponibles: string[] = ['Realizado', 'Pendiente']; // Lista de estados posibles
+
   @Input() actividad: any = {
     descripcion: '',
     fecha_entrega: '',
     id_usuario: '',
-    estado_actividad: '',
-    nombre_actividad: ''
+    nombre_actividad: '',
+    estado_actividad: ''
   };
-  @Input() editMode: boolean = false; // Determina si está en modo edición
-  @Output() onSave = new EventEmitter(); // Emite evento cuando se guarda o actualiza
 
-  constructor(private actividadesService: ActividadesService, private router: Router) {}
+  @Input() editMode: boolean = false; // Indica si el formulario está en modo de edición
+  @Output() onSave = new EventEmitter<void>(); // Evento para notificar al componente padre después de guardar
+
+  constructor(
+    private actividadesService: ActividadesService,
+    private router: Router
+  ) {}
 
   // Guardar o actualizar actividad
   guardarActividad(): void {
+    if (!this.actividad.estado_actividad || !this.actividad.descripcion || !this.actividad.nombre_actividad) {
+      console.error('Por favor, completa todos los campos obligatorios.');
+      return;
+    }
+
     if (this.editMode) {
-      // Actualizar actividad
+      // Actualizar actividad existente
       this.actividadesService.actualizarActividad(this.actividad.id, this.actividad).subscribe({
         next: (response) => {
           console.log('Actividad actualizada:', response);
-          this.onSave.emit(); // Notificar al componente padre que se realizó la acción
-          this.router.navigate(['/actividades']); // Redirigir al listado
+          this.onSave.emit(); // Emitir evento al componente padre
+          this.router.navigate(['/actividades']); // Redirigir al listado de actividades
         },
         error: (err) => {
           console.error('Error al actualizar actividad:', err);
         }
       });
     } else {
-      // Crear actividad
+      // Crear nueva actividad
       this.actividadesService.crearActividad(this.actividad).subscribe({
         next: (response) => {
           console.log('Actividad creada:', response);
-          this.onSave.emit(); // Notificar al componente padre que se realizó la acción
-          this.router.navigate(['/actividades']); // Redirigir al listado
+          this.onSave.emit(); // Emitir evento al componente padre
+          this.router.navigate(['/actividades']); // Redirigir al listado de actividades
         },
         error: (err) => {
           console.error('Error al crear actividad:', err);
@@ -55,5 +66,4 @@ export class FormularioActividadComponent {
   cancelar(): void {
     this.router.navigate(['/actividades']); // Redirigir al listado de actividades
   }
-
 }

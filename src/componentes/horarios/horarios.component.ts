@@ -18,10 +18,10 @@ export class HorariosComponent implements OnInit {
   editingId: number | null = null;
 
   constructor(private router: Router,private horariosService: HorariosService) {}
-
   ngOnInit(): void {
     this.loadHorarios();
   }
+  
   irPerfil() {
     // Redirigir al componente de registrar horario
     this.router.navigate(['/perfil']);
@@ -33,14 +33,24 @@ export class HorariosComponent implements OnInit {
 
   loadHorarios(): void {
     this.horariosService.getHorarios().subscribe({
-      next: (data) => {
-        this.horarios = data.data;
+      next: (response) => {
+        // Verifica si la respuesta es un arreglo
+        if (Array.isArray(response)) {
+          this.horarios = response; // Si es un arreglo directamente
+        } else if (response.data && Array.isArray(response.data)) {
+          // Filtra los horarios según el id_usuario almacenado en localStorage
+          this.horarios = response.data.filter((horario: any) => horario.id_usuario == localStorage.getItem('id'));
+        } else {
+          console.error('La respuesta no contiene un arreglo válido:', response);
+        }
       },
-      error: () => {
+      error: (error) => {
+        console.error('Error al cargar los horarios:', error);
         this.error = 'Error al cargar los horarios';
       }
     });
   }
+  
   
   editHorario(horario: any): void {
     this.editMode = true;

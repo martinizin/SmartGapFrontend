@@ -2,100 +2,95 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 20px;
-    background-color: #0A0F1A; /* Fondo oscuro armonizando con el logo */
-    color: #FFFFFF; /* Texto blanco para contraste */
-}
-
-h1 {
+    background-color: #0A0F1A;
+    color: #FFFFFF;
+  }
+  
+  h1 {
     text-align: center;
-    color: #7c3ecc; /* Rosa vibrante del logo */
-}
-
-.navbar {
-    background-color: #5A32F0; /* Azul púrpura del logo */
+    color: #7c3ecc;
+  }
+  
+  .navbar {
+    background-color: #5A32F0;
     color: white;
     padding: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-    border-radius: 10px; /* Sombra más marcada */
-}
-
-.navbar button {
-    background-color: #cc3e51; /* Rosa vibrante para los botones */
+    border-radius: 10px;
+  }
+  
+  .navbar-buttons button {
+    margin-left: 10px;
+    background-color: #cc3e51;
     color: white;
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.navbar button:hover {
-    background-color : #7c3ecc; /* Rosa más oscuro para hover */
-    transform: scale(1.05); 
-    border-radius: 10px;/* Animación sutil al pasar el mouse */
-}
-
-.table-container {
+  }
+  
+  .navbar-buttons button:hover {
+    background-color: #7c3ecc;
+    transform: scale(1.05);
+  }
+  
+  .table-container {
     max-width: 800px;
     margin: 20px auto;
-    background-color: #131B2B; /* Fondo oscuro para la tabla */
+    background-color: #131B2B;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Sombra más pronunciada */
-    color: #FFFFFF; /* Texto blanco dentro de la tabla */
-}
-
-table {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    color: #FFFFFF;
+  }
+  
+  table {
     width: 100%;
     border-collapse: collapse;
-}
-
-th, td {
+  }
+  
+  th, td {
     padding: 10px;
     text-align: left;
-    border-bottom: 1px solid #4A4A4A; /* Línea divisoria oscura */
-}
-
-th {
-    background-color: #5A32F0; /* Azul púrpura del logo */
+    border-bottom: 1px solid #4A4A4A;
+  }
+  
+  th {
+    background-color: #5A32F0;
     color: white;
-}
-
-tr:nth-child(even) {
-    background-color: #1E2740; /* Fila alterna azul oscuro */
-}
-
-tr:hover {
-    background-color: #252E49; /* Hover más claro */
-}
-
-.error-message {
-    color: #FF4F5E; /* Rojo vibrante para errores */
-    text-align: center;
-    font-weight: bold;
-}
-
-.buttons-container {
+  }
+  
+  tr:nth-child(even) {
+    background-color: #1E2740;
+  }
+  
+  tr:hover {
+    background-color: #252E49;
+  }
+  
+  .buttons-container {
     display: flex;
     justify-content: center;
     gap: 20px;
     margin-top: 20px;
-}
-
-.buttons-container button {
-    background-color: #5A32F0; /* Azul púrpura del logo */
+  }
+  
+  .buttons-container button {
+    background-color: #5A32F0;
     color: white;
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.buttons-container button:hover {
-    background-color: #4027B3; /* Azul púrpura más oscuro para hover */
-    transform: scale(1.05); /* Animación sutil al pasar el mouse */
-}
+  }
+  
+  .buttons-container button:hover {
+    background-color: #4027B3;
+    transform: scale(1.05);
+  }
+  

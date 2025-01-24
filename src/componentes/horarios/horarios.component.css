@@ -1,82 +1,144 @@
+/* Contenedor general */
 .container {
   padding: 20px;
-  background-color: #0A0F1A; /* Fondo oscuro para armonizar con el logo */
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada para contraste */
+  background-color: #0A0F1A; /* Fondo oscuro */
+  border-radius: 15px; /* Bordes más redondeados */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); /* Sombra más pronunciada */
+  max-width: 1200px; /* Máximo ancho */
+  margin: 40px auto; /* Centrado en la página */
 }
 
+/* Título */
 .title {
-  color: #EF52E7; /* Color rosa vibrante del logo */
-  font-size: 24px;
-  margin-bottom: 20px;
+  color: #540db1; /* Rosa vibrante */
+  font-size: 28px; /* Tamaño más grande */
+  margin-bottom: 30px; /* Mayor espaciado inferior */
   text-align: center;
   font-weight: bold;
+  text-transform: uppercase; /* Letras mayúsculas */
+  letter-spacing: 1.5px; /* Espaciado entre letras */
 }
 
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  margin-bottom: 20px;
-}
-
-form input, form button {
-  padding: 10px;
-  font-size: 16px;
-  border: 1px solid #4A4A4A; /* Borde oscuro para integrar el diseño */
-  border-radius: 5px;
-  background-color: #131B2B; /* Fondo de campos acorde con el logo */
-  color: #FFFFFF; /* Texto blanco para contraste */
-}
-
-form input::placeholder {
-  color: #9DA3B4; /* Placeholder en gris claro */
-}
-
-form button {
-  background-color: #EF52E7; /* Botón con rosa vibrante */
-  color: white;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-form button:hover {
-  background-color: #B43AB1; /* Hover en un rosa más oscuro */
-  transform: scale(1.05); /* Ligera animación al pasar el mouse */
-}
-
+/* Tabla */
 .table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
-  color: #FFFFFF; /* Texto blanco en la tabla */
-  background-color: #131B2B; /* Fondo oscuro para la tabla */
+  color: #FFFFFF; /* Texto blanco */
+  background-color: #131B2B; /* Fondo oscuro */
+  border-radius: 10px; /* Bordes redondeados */
+  overflow: hidden; /* Elimina bordes adicionales */
 }
 
 .table th, .table td {
-  border: 1px solid #4A4A4A;
-  padding: 8px;
-}
-
-.table th {
-  background-color: #5A32F0; /* Azul púrpura del logo */
-  color: white;
+  padding: 12px 15px; /* Más espaciado interno */
   text-align: left;
 }
 
+.table th {
+  background-color: #5A32F0; /* Azul púrpura */
+  color: #FFFFFF; /* Texto blanco */
+  font-size: 16px; /* Tamaño de texto */
+  font-weight: bold;
+}
+
+.table td {
+  background-color: #1E2740; /* Azul oscuro */
+  font-size: 15px; /* Texto un poco más pequeño */
+}
+
 .table tr:nth-child(even) {
-  background-color: #1E2740; /* Fila alterna en azul oscuro */
+  background-color: #252E49; /* Fila alterna */
 }
 
 .table tr:hover {
-  background-color: #252E49; /* Hover en un azul más claro */
+  background-color: #3A4565; /* Hover en azul más claro */
+  cursor: pointer; /* Cambia el cursor */
 }
 
-.error {
-  color: #FF4F5E; /* Rojo más vivo y contrastante */
+/* Botones */
+button {
+  padding: 10px 20px;
   font-size: 16px;
-  margin-bottom: 20px;
+  border-radius: 8px; /* Bordes redondeados */
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease; /* Transiciones suaves */
+  margin: 5px; /* Espaciado entre botones */
+}
+
+button:hover {
+  transform: scale(1.05); /* Efecto de hover */
+}
+
+/* Botón Editar */
+button:first-of-type {
+  background-color: #655877; /* Azul púrpura */
+  color: white;
+}
+
+button:first-of-type:hover {
+  background-color: #540db1; /* Azul más oscuro */
+}
+
+/* Botón Eliminar */
+button:last-of-type {
+  background-color: #655877; /* Rosa vibrante */
+  color: white;
+}
+
+button:last-of-type:hover {
+  background-color: #540db1; /* Rosa más oscuro */
+}
+
+/* Contenedor de botones */
+div > button {
+  display: inline-block; /* Para alineación horizontal */
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #4c436e; /* Azul púrpura */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+div > button:hover {
+  background-color: #540db1; /* Hover */
+  transform: scale(1.05);
+}
+
+/* Agregar Materia */
+div > button:first-of-type {
+  background-color: #540db1; /* Rosa vibrante */
+}
+
+div > button:first-of-type:hover {
+  background-color: #8957ca; /* Rosa más oscuro */
+}
+
+/* Mensajes de error */
+.error {
+  color: #FF4F5E; /* Rojo vibrante */
+  font-size: 16px;
+  margin: 20px 0;
   text-align: center;
   font-weight: bold;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  .table th, .table td {
+    font-size: 14px; /* Texto más pequeño en pantallas pequeñas */
+    padding: 8px;
+  }
+
+  button {
+    font-size: 14px; /* Botones más pequeños */
+    padding: 8px 15px;
+  }
+
+  .container {
+    padding: 15px;
+  }
 }

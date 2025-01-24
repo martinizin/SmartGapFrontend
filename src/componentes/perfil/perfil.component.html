@@ -1,42 +1,47 @@
-    <div class="navbar">
-        <h2>Bienvenido/a a SmartGap  {{ usuario.username }}!</h2>
-        <button (click)="cerrarSesion()">Cerrar Sesión</button>
-        <button (click)="irNotificaciones()">Notificaciones</button>
+<div class="navbar">
+    <h2 class="welcome-text">Bienvenido/a a SmartGap {{ usuario.username }}!</h2>
+    <div class="navbar-buttons">
+      <button class="btn-logout" (click)="cerrarSesion()">Cerrar Sesión</button>
+      <button class="btn-notifications" (click)="irNotificaciones()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-bell-fill" viewBox="0 0 16 16">
+          <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2m.995-14.901a1 1 0 1 0-1.99 0A5 5 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901"/>
+        </svg>
+      </button>
     </div>
-   
-
-    <div class="table-container">
-        <h1>{{ usuario.name }}</h1>
-        <div *ngIf="error" class="error-message">{{ error }}</div>
-        <table *ngIf="usuario">
-            <thead>
-                <tr>
-                    <th>Campo</th>
-                    <th>Descripcion</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Nombre</td>
-                    <td>{{ usuario.name }}</td>
-                </tr>
-                <tr>
-                    <td>Correo</td>
-                    <td>{{ usuario.email }}</td>
-                </tr>
-                <tr>
-                    <td>Carrera</td>
-                    <td>{{ usuario.carrera }}</td>
-                </tr>
-                <tr>
-                    <td>Semestre</td>
-                    <td>{{ usuario.semestre }}</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    <div class="buttons-container">
-        <button (click)="registrarActividad()">Mis Actividades</button>
-        <button (click)="registrarHorario()">Horario</button>
-    </div>
-
+  </div>
+  <div class="table-container">
+    <h1>{{ usuario.name }}</h1>
+    <div *ngIf="error" class="error-message">{{ error }}</div>
+    <table *ngIf="usuario">
+      <thead>
+        <tr>
+          <th>Campo</th>
+          <th>Descripción</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Nombre</td>
+          <td>{{ usuario.name }}</td>
+        </tr>
+        <tr>
+          <td>Correo</td>
+          <td>{{ usuario.email }}</td>
+        </tr>
+        <tr>
+          <td>Carrera</td>
+          <td>{{ usuario.carrera }}</td>
+        </tr>
+        <tr>
+          <td>Semestre</td>
+          <td>{{ usuario.semestre }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <div class="buttons-container">
+    <button class="btn btn-primary" (click)="registrarActividad()">Mis Actividades</button>
+    <button class="btn btn-secondary" (click)="registrarHorario()">Horario</button>
+  </div>
+  

@@ -1,72 +1,101 @@
-<div class="form-container">
-  <h1 class="text-center">{{ editMode ? 'Editar Actividad' : 'Registrar Actividad' }}</h1>
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card shadow-lg">
+        <div class="card-header bg-primary text-white text-center">
+          <h1 class="h4">{{ editMode ? 'Editar Actividad' : 'Registrar Actividad' }}</h1>
+        </div>
+        <div class="card-body">
+          <form (ngSubmit)="guardarActividad()">
+            <!-- Descripción -->
+            <div class="form-group">
+              <label for="descripcion" class="font-weight-bold">Descripción</label>
+              <input
+                id="descripcion"
+                class="form-control"
+                [(ngModel)]="actividad.descripcion"
+                name="descripcion"
+                placeholder="Descripción de la actividad"
+                required
+              />
+            </div>
 
-  <form (ngSubmit)="guardarActividad()">
-    <div class="form-group">
-      <label for="descripcion">Descripción</label>
-      <input
-        id="descripcion"
-        class="form-control"
-        [(ngModel)]="actividad.descripcion"
-        name="descripcion"
-        placeholder="Descripción de la actividad"
-        required
-      />
-    </div>
+            <!-- Fecha de Entrega -->
+            <div class="form-group">
+              <label for="fecha_entrega" class="font-weight-bold">Fecha de Entrega</label>
+              <input
+                id="fecha_entrega"
+                type="text"
+                class="form-control"
+                [(ngModel)]="actividad.fecha_entrega"
+                name="fecha_entrega"
+                placeholder="Formato: DD-MM-YYYY"
+                required
+              />
+            </div>
 
-    <div class="form-group">
-      <label for="fecha_entrega">Fecha de Entrega</label>
-      <input
-        id="fecha_entrega"
-        type="text"
-        class="form-control"
-        [(ngModel)]="actividad.fecha_entrega"
-        name="fecha_entrega"
-        placeholder="Formato: DD-MM-YYYY"
-        required
-      />
-    </div>
+            <!-- ID Usuario -->
+            <div class="form-group">
+              <label for="id_usuario" class="font-weight-bold">ID Usuario</label>
+              <input
+                id="id_usuario"
+                type="text"
+                class="form-control"
+                [(ngModel)]="actividad.id_usuario"
+                name="id_usuario"
+                placeholder="ID del usuario"
+                required
+              />
+            </div>
 
-    <div class="form-group">
-      <label for="id_usuario">ID Usuario</label>
-      <input
-        id="id_usuario"
-        type="string"
-        class="form-control"
-        [(ngModel)]="actividad.id_usuario"
-        name="id_usuario"
-        placeholder="ID del usuario"
-        required
-      />
-    </div>
+            <!-- Estado -->
+            <!-- Estado -->
+<div class="form-group">
+  <label for="estado_actividad" class="font-weight-bold">Estado</label>
+  <select
+    id="estado_actividad"
+    class="form-control"
+    [(ngModel)]="actividad.estado_actividad"
+    name="estado_actividad"
+    required
+  >
+    <option value="" disabled selected>Selecciona un estado</option>
+    <option *ngFor="let estado of estadosDisponibles" [value]="estado">
+      {{ estado }}
+    </option>
+  </select>
+</div>
 
-    <div class="form-group">
-      <label for="estado_actividad">Estado</label>
-      <input
-        id="estado_actividad"
-        class="form-control"
-        [(ngModel)]="actividad.estado_actividad"
-        name="estado_actividad"
-        placeholder="Estado de la actividad (e.g., Realizado, Pendiente)"
-        required
-      />
-    </div>
 
-    <div class="form-group">
-      <label for="nombre_actividad">Nombre de la Actividad</label>
-      <input
-        id="nombre_actividad"
-        class="form-control"
-        [(ngModel)]="actividad.nombre_actividad"
-        name="nombre_actividad"
-        placeholder="Nombre de la actividad"
-        required
-      />
-    </div>
+            <!-- Nombre de la Actividad -->
+            <div class="form-group">
+              <label for="nombre_actividad" class="font-weight-bold">Nombre de la Actividad</label>
+              <input
+                id="nombre_actividad"
+                class="form-control"
+                [(ngModel)]="actividad.nombre_actividad"
+                name="nombre_actividad"
+                placeholder="Nombre de la actividad"
+                required
+              />
+            </div>
 
-    <div class="form-buttons text-center mt-3">
-      <button class="btn btn-success" type="submit">{{ editMode ? 'Actualizar' : 'Guardar' }}</button>
-      <button class="btn btn-secondary ml-2" type="button" (click)="cancelar()">Cancelar</button>
+            <!-- Botones -->
+            <div class="form-group text-center">
+              <button class="btn btn-success mr-2" type="submit">
+                {{ editMode ? 'Actualizar' : 'Guardar' }}
+              </button>
+              <button
+                class="btn btn-secondary"
+                type="button"
+                (click)="cancelar()"
+              >
+                Cancelar
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
-  </form>
+  </div>
 </div>

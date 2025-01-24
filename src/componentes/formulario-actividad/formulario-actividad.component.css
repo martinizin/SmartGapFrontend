@@ -1,0 +1,126 @@
+/* Global Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #0A0F1A; /* Fondo oscuro consistente con el logo */
+  color: #e4e4e4; /* Texto gris claro */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Ocupa toda la altura de la página */
+  overflow: hidden; /* Evita scroll */
+}
+
+/* Container */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 400px; /* Ajusta el ancho máximo del contenedor */
+  margin: 0 auto; /* Centra horizontalmente */
+  padding: 2rem; /* Espaciado interno */
+  background-color: #1a1035; /* Fondo morado oscuro */
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); /* Sombra pronunciada */
+}
+.container h1 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #dadada; /* Rosa vibrante del logo */
+  text-shadow: 0 2px 5px rgba(239, 82, 231, 0.5); /* Sombra rosada */
+}
+
+/* Título del formulario */
+.container h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #dadada; /* Rosa vibrante del logo */
+  text-shadow: 0 2px 5px rgba(239, 82, 231, 0.5); /* Sombra rosada */
+}
+
+/* Formulario */
+form {
+  display: flex;
+  flex-direction: column; /* Elementos apilados */
+  gap: 1rem; /* Espaciado entre campos */
+  width: 100%;
+}
+
+/* Campos del formulario */
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-weight: bold;
+  font-size: 1rem;
+  color: white; /* Morado claro */
+  margin-bottom: 0.5rem; /* Espaciado inferior */
+}
+
+input {
+  border: 1px solid #4A4A4A; /* Borde gris oscuro */
+  border-radius: 5px; /* Bordes redondeados */
+  background-color: #2a2a3b; /* Fondo gris oscuro */
+  color: white; /* Texto blanco */
+  padding: 0.75rem; /* Espaciado interno */
+  font-size: 1rem; /* Tamaño de texto */
+}
+
+input:focus {
+  border-color: #EF52E7; /* Rosa vibrante al enfocarse */
+  outline: none; /* Elimina el borde predeterminado */
+  box-shadow: 0 0 8px rgba(239, 82, 231, 0.5); /* Sombra rosada al enfocar */
+}
+
+/* Botones */
+button {
+  font-size: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: 5px; /* Bordes redondeados */
+  transition: all 0.3s ease; /* Transición suave */
+  cursor: pointer;
+  width: 100%;
+}
+
+/* Botón Guardar */
+button.btn-success {
+  background-color: #030007; /* Morado vibrante */
+  color: #fff;
+  border: none;
+  margin-bottom: 1rem;
+}
+
+button.btn-success:hover {
+  background-color: #29196e; /* Morado más oscuro */
+  transform: scale(1.05); /* Animación de agrandamiento */
+}
+
+/* Botón Cancelar */
+button.btn-secondary {
+  background-color: #030007; /* Morado intermedio */
+  color: #fff;
+  border: none;
+}
+
+button.btn-secondary:hover {
+  background-color: #baa7ee; /* Morado más claro */
+  transform: scale(1.05); /* Animación de agrandamiento */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .container {
+    margin: 0 1rem; /* Reduce el margen en dispositivos pequeños */
+    max-width: 100%; /* Ajusta el ancho en pantallas pequeñas */
+  }
+
+  button {
+    width: 100%; /* Botones ocupan el ancho completo */
+  }
+}

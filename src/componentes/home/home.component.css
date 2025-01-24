@@ -1,116 +1,147 @@
 /* Estilo global */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #1a1035; /* Fondo oscuro */
-    color: white;
-    display: flex;
-    flex-direction: column;
-    height: 50vh; /* Altura de la ventana */
-    overflow: hidden; /* Evita el scroll */
-  }
-  
-  .page {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* Distribuye contenido para que navbar, contenido y footer estén alineados */
-    height: 100%;
-  }
-  
-  /* Navbar */
-  .navbar {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: #000000; /* Negro */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  }
-  
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #0A0F1A; /* Fondo oscuro */
+  color: white;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Altura mínima para llenar la pantalla */
+  overflow: hidden; /* Evita el scroll */
+}
+
+/* Página principal */
+.page {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Navbar, contenido y footer alineados */
+  height: 100vh; /* Ocupa toda la altura de la pantalla */
+  background-color: #0A0F1A; /* Fondo del logo */
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: black ;/* Fondo acorde con el logo */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+}
+
+.navbar button {
+  background-color: #100161; /* Morado vibrante */
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: all 0.3s ease; /* Transición suave */
+}
+
+.navbar button:hover {
+  background-color: #d1d0d4; /* Morado más oscuro al hover */
+  transform: scale(1.05); /* Ligero efecto de escala */
+}
+
+/* Contenido principal */
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1; /* Ocupa todo el espacio disponible */
+  text-align: center;
+  padding: 20px;
+  gap: 20px; /* Espaciado entre elementos */
+}
+
+.header h1 {
+  font-size: 2.5rem;
+  color: whitesmoke; /* Rosa vibrante */
+  margin: 0;
+}
+
+.header p {
+  font-size: 1.2rem;
+  color: #DDD; /* Gris claro */
+  margin: 0;
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  height: 40vh; /* Tamaño adaptable */
+}
+
+.logo img {
+  max-width: 30%;
+  height: auto;
+  margin: 0;
+  padding: 0;
+}
+
+/* Apps */
+.apps {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.apps img {
+  max-width: 120px;
+  margin: 0 10px;
+  transition: transform 0.3s ease;
+}
+
+.apps img:hover {
+  transform: scale(1.1); /* Efecto de escala al hover */
+}
+
+/* Footer */
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: black; /* Fondo oscuro */
+  color: #ccc; /* Gris claro */
+  gap: 15px; /* Espaciado entre imagen y texto */
+}
+
+.footer img {
+  max-width: 30px; /* Ajusta el tamaño del logo */
+  height: auto;
+}
+
+.footer p {
+  margin: 0;
+  font-size: 14px;
+  background-color: black;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
   .navbar button {
-    background-color: #007bff; /* Azul para "Login" */
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-size: 1rem;
-    cursor: pointer;
-    margin-left: 10px;
-    transition: background-color 0.3s ease;
+    font-size: 0.9rem;
+    padding: 8px 12px;
   }
-  
-  .navbar button.register {
-    background-color: #39d353; /* Verde para "Registrarse" */
-  }
-  
-  .navbar button:hover {
-    background-color: #0056b3; /* Azul oscuro para hover */
-  }
-  
-  .navbar button.register:hover {
-    background-color: #2e9c41; /* Verde oscuro para hover */
-  }
-  
-  /* Contenido principal */
-  .content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex: 1; /* Toma todo el espacio disponible entre el navbar y el footer */
-    text-align: center;
-    padding: 10px;
-  }
-  
+
   .header h1 {
     font-size: 2rem;
-    margin: 10px 0;
   }
-  
+
   .header p {
     font-size: 1rem;
-    color: #ddd; /* Gris claro */
   }
-  
-  .apps {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-  }
-  
+
   .apps img {
-    max-width: 120px;
-    margin: 0 10px;
+    max-width: 100px;
   }
-  .logo {
-    display: flex; /* Activa Flexbox */
-    justify-content: center; /* Centra horizontalmente */
-    align-items: center; /* Centra verticalmente (si es necesario) */
-    text-align: center; /* Centra el contenido de texto (por si acaso) */
-  }
-  .logo img {
-    max-width: 250px;
-    margin: 15px auto; /* Espaciado alrededor */
-    padding: 15px 20px; /* Espaciado interno */
-  }
-  /* Footer */
-  .footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: #000000; /* Negro */
-    color: #ccc; /* Gris claro */
-    gap: 10px; /* Espaciado entre imagen y texto */
-  }
-  
-  .footer img {
-    max-width:20px; /* Ajusta el tamaño del logo */
-    height: auto;
-  }
-  
-  .footer p {
-    margin: 0;
-    font-size: 14px;
-  }
+}
