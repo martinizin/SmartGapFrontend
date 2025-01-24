@@ -31,14 +31,14 @@ export class PerfilComponent implements OnInit {
     });
   }
   registrarActividad() {
-    // Redirigir al componente de registrar actividad
+
     this.router.navigate(['/actividades']);
   }
 
   registrarHorario() {
-    // Redirigir al componente de registrar horario
     this.router.navigate(['/horarios']);
   }
+  
   cerrarSesion(): void {
     const token = localStorage.getItem('access_token'); // Recuperar el token del almacenamiento local
 

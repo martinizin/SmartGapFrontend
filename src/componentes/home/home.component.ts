@@ -17,5 +17,6 @@ export class HomeComponent {
     // Redirigir al componente de registrar horario
     this.router.navigate(['/registro']);
   }
+  
   // Component logic
 }

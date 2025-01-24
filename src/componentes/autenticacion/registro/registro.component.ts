@@ -18,15 +18,32 @@ export class RegistroComponent {
   carrera: string = '';
   semestre: string = '';
   error: string = '';
+  semestres: string[] = [
+    'Primer Semestre',
+    'Segundo Semestre',
+    'Tercer Semestre',
+    'Cuarto Semestre',
+    'Quinto Semestre',
+    'Sexto Semestre',
+    'Séptimo Semestre',
+    'Octavo Semestre',
+    'Noveno Semestre',
+  ];
+  mostrarNotificacion: boolean = false;
 
   constructor(private registroService: RegistroService, private router: Router) {}
 
   onSubmit() {
+    if (!this.validarFormulario()) {
+      this.error = 'Por favor, corrige los errores antes de continuar.';
+      return;
+    }
+
     const usuario = {
       name: this.nombre,
       email: this.correo,
       password: this.contrasena,
-      username:this.username,
+      username: this.username,
       carrera: this.carrera,
       semestre: this.semestre
     };
@@ -34,7 +51,11 @@ export class RegistroComponent {
     this.registroService.registrar(usuario).subscribe({
       next: (data) => {
         if (data && data.message) {
-          this.router.navigate(['/login']);
+          this.mostrarNotificacion = true; // Muestra la notificación
+          setTimeout(() => {
+            this.mostrarNotificacion = false; // Oculta la notificación después de 2 segundos
+            this.router.navigate(['/login']); // Redirige a la página de inicio de sesión
+          }, 2000);
         } else {
           this.error = 'Error al registrar el usuario.';
         }
@@ -44,6 +65,23 @@ export class RegistroComponent {
         console.error(err);
       }
     });
-    
+  }
+
+  private validarFormulario(): boolean {
+    const nombreValido = /^[a-zA-Z\s]+$/.test(this.nombre);
+    const correoValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.correo);
+    const contrasenaValida = /(?=.*[A-Z])(?=.*\d).+/.test(this.contrasena);
+    const usernameValido = this.username.length <= 10;
+    const carreraValida = /^[a-zA-Z\s]+$/.test(this.carrera);
+    const semestreValido = this.semestres.includes(this.semestre);
+
+    return (
+      nombreValido &&
+      correoValido &&
+      contrasenaValida &&
+      usernameValido &&
+      carreraValida &&
+      semestreValido
+    );
   }
 }

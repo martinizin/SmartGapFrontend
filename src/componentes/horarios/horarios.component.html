@@ -7,6 +7,7 @@
       <input type="time" placeholder="Hora Inicio" [(ngModel)]="horario.hora_inicio" name="hora_inicio" required />
       <input type="time" placeholder="Hora Fin" [(ngModel)]="horario.hora_fin" name="hora_fin" required />
       <input type="text" placeholder="Día" [(ngModel)]="horario.dia" name="dia" required />
+      <input type="text" placeholder="ID Usuario" [(ngModel)]="horario.id_usuario" name="id_usuario" required />
       <button type="submit">{{ editMode ? 'Actualizar' : 'Crear' }}</button>
     </form>
   
@@ -33,5 +34,8 @@
         </tr>
       </tbody>
     </table>
+    <div>
+      <button (click)="irPerfil()">Regresar</button>
+    </div>
   </div>
   

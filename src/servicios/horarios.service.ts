@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -10,8 +10,22 @@ export class HorariosService {
 
   constructor(private http: HttpClient) {}
 
+  private obtenerToken(): string | null {
+    return localStorage.getItem('access_token'); // Cambia a sessionStorage si usas sesiones
+  }
+
+  private crearHeadersConToken(): HttpHeaders {
+      const token = this.obtenerToken();
+      return new HttpHeaders({
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      });
+    }
+
   getHorarios(): Observable<any> {
-    return this.http.get<any>(this.apiUrl);
+    const headers = this.crearHeadersConToken();
+    return this.http.get<any>(this.apiUrl,{ headers });
   }
 
   getHorarioById(id: number): Observable<any> {
@@ -19,7 +33,13 @@ export class HorariosService {
   }
 
   createHorario(horario: any): Observable<any> {
-    return this.http.post<any>(this.apiUrl, horario);
+    const token = localStorage.getItem('access_token'); // Recuperar el access_token desde el almacenamiento local
+    const headers = {
+      'Authorization': `Bearer ${token}`, // Incluir el token en el encabezado
+      'Content-Type': 'application/json', // Asegurarse de que el contenido sea JSON
+      'Accept': 'application/json'
+    };
+    return this.http.post<any>(this.apiUrl, horario, { headers });
   }
 
   updateHorario(id: number, horario: any): Observable<any> {

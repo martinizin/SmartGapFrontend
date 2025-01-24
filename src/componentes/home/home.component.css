@@ -83,13 +83,17 @@ body {
     max-width: 120px;
     margin: 0 10px;
   }
+  .logo {
+    display: flex; /* Activa Flexbox */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente (si es necesario) */
+    text-align: center; /* Centra el contenido de texto (por si acaso) */
+  }
   .logo img {
     max-width: 250px;
-    margin: 10px;
-    padding: 10px 20px;
+    margin: 15px auto; /* Espaciado alrededor */
+    padding: 15px 20px; /* Espaciado interno */
   }
-  
-  
   /* Footer */
   .footer {
     display: flex;

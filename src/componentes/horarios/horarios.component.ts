@@ -1,4 +1,5 @@
-import { Component,OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { HorariosService } from '../../servicios/horarios.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -11,15 +12,19 @@ import { CommonModule } from '@angular/common';
 })
 export class HorariosComponent implements OnInit {
   horarios: any[] = [];
-  horario: any = { materia: '', hora_inicio: '', hora_fin: '', dia: '' }; // Para crear y actualizar
+  horario: any = { materia: '', hora_inicio: '', hora_fin: '', dia: '',id_usuario:'' }; // Para crear y actualizar
   error: string = '';
   editMode: boolean = false;
   editingId: number | null = null;
 
-  constructor(private horariosService: HorariosService) {}
+  constructor(private router: Router,private horariosService: HorariosService) {}
 
   ngOnInit(): void {
     this.loadHorarios();
+  }
+  irPerfil() {
+    // Redirigir al componente de registrar horario
+    this.router.navigate(['/perfil']);
   }
 
   loadHorarios(): void {
@@ -77,5 +82,6 @@ export class HorariosComponent implements OnInit {
       }
     });
   }
+  
 
 }

@@ -1,79 +1,90 @@
 /* Archivo: registro.component.css */
 
 .registro-container {
-    background-color: rgba(0,17,37,255); /* Color oscuro de fondo */
-    color: #ffffff; /* Texto blanco */
-    width: 300px;
-    height: 600px;
-    margin: 50px auto;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    text-align: left;
-    font-family: 'Arial', sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .registro-container h2 {
-    margin-bottom: 20px;
-    font-size: 24px;
-    font-weight: bold;
-  }
-  
-  .registro-container form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    max-width: 300px; /* Adjust the max-width as needed */
-  }
+  background-color: rgba(0, 17, 37, 255); /* Color oscuro de fondo */
+  color: #ffffff; /* Texto blanco */
+  width: 300px;
+  margin: 50px auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: left;
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-  .registro-container div {
-    width: 100%;
-    margin-bottom: 10px;
-    border-radius: 10px;
-  }
-  
-  .registro-container label {
-    font-size: 14px;
-    display: block;
-    margin-bottom: 5px;
-  }
-  .registro-container a {
-    color: #ffffff;
-    font-size: 12px;
-    margin-top: 10px;
-    text-decoration: underline;
-    text-align: center;
-  }
-  .registro-container input {
-    width: 90%;
+.registro-container h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.registro-container form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 300px; /* Adjust the max-width as needed */
+}
+
+.registro-container div {
+  width: 100%;
+  margin-bottom: 15px;
+  position: relative; /* Ensure elements stay in position */
+}
+
+.registro-container label {
+  font-size: 14px;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.registro-container a {
+  color: #ffffff;
+  font-size: 12px;
+  margin-top: 10px;
+  text-decoration: underline;
+  text-align: center;
+}
+
+.registro-container input,
+.registro-container select {
+  width: 100%;
   padding: 8px;
-  margin-bottom: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 14px;
+  box-sizing: border-box;
+}
+
+.registro-container button {
+  width: 100%;
+  padding: 10px;
+  background-color: #7b42f5; /* Original button color */
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.registro-container button:hover {
+  background-color: #643399; /* Darker purple */
+}
+
+.error-message {
+  color: red;
+  font-size: 12px;
+  position: absolute; /* Keeps the error message from taking up space */
+  top: 100%; /* Position below the input field */
+  left: 0;
   width: 100%;
   box-sizing: border-box;
-  }
-  
-  .registro-container button {
-    width: 100%;
-    padding: 10px;
-    background-color: #7b42f5; /* Original button color */
-    color: #ffffff;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-  }
-  
-  .registro-container button:hover {
-    background-color: #643399; /* Darker purple */
-  }
+  margin-top: 2px; /* Adds some space between input and error */
+}
 
-  .error-message {
-    color: red;
-    margin-bottom: 10px;
-  }
+input.ng-invalid.ng-touched,
+select.ng-invalid.ng-touched {
+  border-color: red; /* Highlights invalid fields */
+}

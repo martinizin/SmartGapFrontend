@@ -2,6 +2,7 @@ import { Component,OnInit } from '@angular/core';
 import { ActividadesService } from '../../servicios/actividades.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-actividades',
@@ -18,8 +19,7 @@ export class ActividadesComponent implements OnInit {
     estado_actividad: '',
     nombre_actividad: ''
   };
-
-  constructor(private actividadesService: ActividadesService) {}
+  constructor(private router: Router, private actividadesService: ActividadesService) {}
 
   ngOnInit(): void {
     this.obtenerActividades();
@@ -40,6 +40,10 @@ export class ActividadesComponent implements OnInit {
         console.error('Error al obtener actividades:', error);
       }
     );
+  }
+  irPerfil() {
+    // Redirigir al componente de registrar horario
+    this.router.navigate(['/perfil']);
   }
 
   // Crear una nueva actividad
@@ -83,4 +87,6 @@ export class ActividadesComponent implements OnInit {
       }
     );
   }
+
+  
 }

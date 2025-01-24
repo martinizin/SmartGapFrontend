@@ -1,32 +1,77 @@
 <div class="registro-container">
   <h2>Registro</h2>
-  <form (ngSubmit)="onSubmit()">
+  <form (ngSubmit)="onSubmit()" #registroForm="ngForm">
     <div>
       <label for="nombre">Nombre</label>
-      <input type="text" id="nombre" [(ngModel)]="nombre" name="nombre" required>
+      <input type="text" id="nombre" [(ngModel)]="nombre" name="nombre" required pattern="[a-zA-Z\s]+" #nombreRef="ngModel">
+      <div *ngIf="nombreRef.invalid && nombreRef.touched" class="error-message">
+        El nombre solo puede contener letras y espacios.
+      </div>
     </div>
     <div>
       <label for="correo">Correo</label>
-      <input type="email" id="correo" [(ngModel)]="correo" name="correo" required>
+      <input type="email" id="correo" [(ngModel)]="correo" name="correo" required email #correoRef="ngModel">
+      <div *ngIf="correoRef.invalid && correoRef.touched" class="error-message">
+        Por favor, introduce un correo válido.
+      </div>
     </div>
     <div>
       <label for="contrasena">Contraseña</label>
-      <input type="password" id="contrasena" [(ngModel)]="contrasena" name="contrasena" required>
+      <input
+        type="password"
+        id="contrasena"
+        [(ngModel)]="contrasena"
+        name="contrasena"
+        required
+        pattern="(?=.*[A-Z])(?=.*\d).+"
+        #contrasenaRef="ngModel"
+      >
+      <div *ngIf="contrasenaRef.invalid && contrasenaRef.touched" class="error-message">
+        La contraseña debe incluir al menos una mayúscula y un número.
+      </div>
     </div>
     <div>
       <label for="username">Nombre de usuario</label>
-      <input type="text" id="username" [(ngModel)]="username" name="username" required>
+      <input
+        type="text"
+        id="username"
+        [(ngModel)]="username"
+        name="username"
+        required
+        maxlength="10"
+        #usernameRef="ngModel"
+      >
+      <div *ngIf="usernameRef.invalid && usernameRef.touched" class="error-message">
+        El nombre de usuario debe tener máximo 10 caracteres.
+      </div>
     </div>
     <div>
       <label for="carrera">Carrera</label>
-      <input type="text" id="carrera" [(ngModel)]="carrera" name="carrera">
+      <input
+        type="text"
+        id="carrera"
+        [(ngModel)]="carrera"
+        name="carrera"
+        required
+        pattern="[a-zA-Z\s]+"
+        #carreraRef="ngModel"
+      >
+      <div *ngIf="carreraRef.invalid && carreraRef.touched" class="error-message">
+        La carrera solo puede contener letras y espacios.
+      </div>
     </div>
     <div>
       <label for="semestre">Semestre</label>
-      <input type="text" id="semestre" [(ngModel)]="semestre" name="semestre">
+      <select id="semestre" [(ngModel)]="semestre" name="semestre" required>
+        <option value="" disabled selected>Selecciona un semestre</option>
+        <option *ngFor="let sem of semestres" [value]="sem">{{ sem }}</option>
+      </select>
+      <div *ngIf="!semestre && registroForm.submitted" class="error-message">
+        Por favor, selecciona un semestre.
+      </div>
     </div>
     <div *ngIf="error" class="error-message">{{ error }}</div>
-    <button type="submit">Registrar</button>
+    <button type="submit" [disabled]="registroForm.invalid">Registrar</button>
     <a href="/login">Iniciar sesión</a>
   </form>
 </div>
